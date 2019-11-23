@@ -18,22 +18,20 @@ public class CoinCollectionTest
         System.out.println("Testing construction...");
 
         errorCheck(collection.getCollectionSize() != 0);
-        errorCheck(collection.getCollectionTotal() != 0);
+        errorCheck(collection.getCollectionTotal() != 0.0);
     }
 
     private static void testAddCoin()
     {
         CoinCollection collection = new CoinCollection();
-        Coin coin1, coin2, coin3, coin4, coin5, coin6;
+        Coin coin1 = new Coin(0.05),
+             coin2 = new Coin(0.05),
+             coin3 = new Coin(0.5),
+             coin4 = new Coin(1.0),
+             coin5 = new Coin(5.0),
+             coin6 = new Coin(10.0);
 
         System.out.println("Testing addCoin...");
-
-        coin1 = new Coin(0.05);
-        coin2 = new Coin(0.05);
-        coin3 = new Coin(0.5);
-        coin4 = new Coin(1);
-        coin5 = new Coin(5);
-        coin6 = new Coin(10);
 
         collection.addCoin(coin1);
 
@@ -62,31 +60,28 @@ public class CoinCollectionTest
     private static void testEmptyCollection()
     {
         CoinCollection collection = new CoinCollection();
-        Coin coin1, coin2, coin3;
+        Coin coin1 = new Coin(1.0),
+             coin2 = new Coin(5.0),
+             coin3 = new Coin(10.0);
 
         System.out.println("Testing emptyCollection...");
-
-        coin1 = new Coin(1);
-        coin2 = new Coin(5);
-        coin3 = new Coin(10);
 
         collection.addCoin(coin1);
         collection.addCoin(coin2);
         collection.addCoin(coin3);
 
         errorCheck(collection.getCollectionSize() != 3);
-        errorCheck(collection.getCollectionTotal() != 16);
+        errorCheck(collection.getCollectionTotal() != 16.0);
 
         collection.emptyCollection();
 
         errorCheck(collection.getCollectionSize() != 0);
-        errorCheck(collection.getCollectionTotal() != 0);
+        errorCheck(collection.getCollectionTotal() != 0.0);
     }
 
-    private static void errorCheck(Boolean result)
+    private static void errorCheck(Boolean failed)
     {
-        if (result)
-        {
+        if (failed) {
             System.out.println("Error!");
         }
     }

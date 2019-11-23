@@ -1,18 +1,21 @@
 /**
- * A coin collection contains coins. Coins can only be of value 0.05, 0.5, 1, 5, 10
- * Each coin VALUE can only appear in the collection once (e.g only one coin with value 5)
+ * A coin collection contains coins. Coins can only be of value 
+ * 0.05, 0.5, 1, 5, 10
+ * Each coin VALUE can only appear in the collection once 
+ * (e.g only one coin with value 5)
  */
 public class CoinCollection 
 {
 
-    private Wallet collection;
+    // A wallet that will be our collection
+    private Wallet _collection;
 
     /**
      * @effects Creates a new coin collection
      */
     public CoinCollection() 
     {
-        this.collection = new Wallet();
+        _collection = new Wallet();
     }
     
     /**
@@ -23,14 +26,14 @@ public class CoinCollection
      */
     public boolean addCoin(Coin coin) 
     {
-        if (this.collection.containsCoin(coin.getValue()))
-        {
+        Boolean doesContainCoin = _collection.containsCoin(coin.getValue());
+
+        if (doesContainCoin) {
             return false;
-        } else
-        {
-            collection.addCoin(coin);
-            return true;
-        }
+        } 
+
+        _collection.addCoin(coin);
+        return true;
     }
     
     /**
@@ -38,7 +41,7 @@ public class CoinCollection
      */
     public double getCollectionTotal() 
     {
-        return this.collection.getWalletTotal();
+        return _collection.getWalletTotal();
     }
     
     /**
@@ -46,7 +49,7 @@ public class CoinCollection
      */
     public int getCollectionSize() 
     {
-        return this.collection.getWalletSize();    	
+        return _collection.getWalletSize();    	
     }
     
     /**
@@ -55,6 +58,6 @@ public class CoinCollection
      */
     public void emptyCollection() 
     {
-        this.collection.emptyWallet();
+        _collection.emptyWallet();
     }
 }
