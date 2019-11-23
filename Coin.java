@@ -11,7 +11,7 @@ public class Coin {
      * 
      */
     public Coin(double value) {
-    	//
+        this.value = value;
     }
 
 
@@ -19,6 +19,6 @@ public class Coin {
      * @return the value of the Coin
      */
     public double getValue() {
-    	//
+    	return this.value;
     }
 }
